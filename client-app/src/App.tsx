@@ -2,11 +2,7 @@ import React, { useState,useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-// import { ducks } from './demo';
-// import DuckItem from './DuckItem';
-
-
-
+import { Button, Header, List } from 'semantic-ui-react';
 
 function App() {
  const [activities,setActivities] = useState([]);
@@ -19,31 +15,16 @@ function App() {
  }, [])
 
   return (
-    <div className="App">
-      <header className="App-header">
-          {/* {ducks.map(duck =>
-            <DuckItem duck={duck} key={duck.name}/>
-          )} */}
-          <img src={logo} className='App-logo' alt="logo"></img>
-          <ul>
-            
-          {activities.map((activity : any) => (
-            <li key={activity.id}>
-              {activity.title}
-            </li>
-
-          ))}
-          </ul>
-
-          {/* <p>Edit<code>src/App.tsx</code>and save to relod!!</p>
-          <a className='App-link' 
-             href='https://reactjs.orj/' 
-             target='_blank' 
-             rel="noopener noreferrer">
-            Learn React
-          </a> */}
-
-      </header>
+    <div>
+        <Header as='h2' icon='users' content='Reactivities'/>
+          <List>
+            {activities.map((activity : any) => (
+              <List.Item key={activity.id}>
+                {activity.title}
+              </List.Item>
+            ))}
+          </List> 
+          <Button content='test'/>
     </div>
   );
 }
